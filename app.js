@@ -34,12 +34,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
-app.use(express.session({
-  secret: 'Ç²',
-  key: 'sid',
-  cookie: { httpOnly: true, secure: true },
-}));
-
 app.use(helmet.noCache());
 app.use(helmet.frameguard());
 app.use(helmet.xssFilter());
