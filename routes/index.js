@@ -1,6 +1,8 @@
 import express from 'express';
 import chalk from 'chalk';
 import cors from 'cors';
+import twilio from 'twilio';
+
 const router = new express.Router();
 
 router.get('/', (req, res) => {
@@ -33,6 +35,31 @@ router.get('/', (req, res) => {
 router.get('/cors', cors(), (req, res) => {
   console.log(chalk.blue('Cors enabled!'));
   res.json({ msg: 'This is CORS-enabled for all origins!' });
+});
+
+router.get('/sms', cors(), (req, res) => {
+  const client = new twilio.RestClient('ACCOUNT SID', 'AUTH TOKEN');
+  client.sms.messages.create({
+    to: '+TO',
+    from: '+FROM',
+    body: 'Hi dude',
+  }, (error, message) => {
+      // The HTTP request to Twilio will run asynchronously. This callback
+      // function will be called when a response is received from Twilio
+      // The "error" variable will contain error information, if any.
+      // If the request was successful, this value will be "falsy"
+      console.log(chalk.bold.red(`Error : ${JSON.stringify(error)}, Message : ${JSON.stringify(message)}`));
+    if (!error) {
+        console.log('Success! The SID for this SMS message is:');
+        console.log(message.sid);
+        console.log('Message sent on:');
+        console.log(chalk.blue(message.dateCreated));
+        res.json('Ok');
+    } else {
+        console.log('Oops! There was an error.');
+    }
+  });
+
 });
 
 module.exports = router;
