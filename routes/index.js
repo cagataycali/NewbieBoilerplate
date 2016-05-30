@@ -1,6 +1,7 @@
 import express from 'express';
 import chalk from 'chalk';
 import cors from 'cors';
+import email from 'emailjs';
 const router = new express.Router();
 
 router.get('/', (req, res) => {
@@ -33,6 +34,24 @@ router.get('/', (req, res) => {
 router.get('/cors', cors(), (req, res) => {
   console.log(chalk.blue('Cors enabled!'));
   res.json({ msg: 'This is CORS-enabled for all origins!' });
+});
+
+router.get('/mail', cors(), (req, res) => {
+  const server = email.server.connect({
+    user: 'dummy@gmail.com',
+    password: 'YourSecretPass',
+    host: 'smtp.gmail.com',
+    ssl: true,
+  });
+
+// send the message and get a callback with an error or details of the message that was sent
+  server.send({
+    text: 'i hope this works',
+    from: 'you <dummy@gmail.com>',
+    to: '<calicagatay@icloud.com>, c2 <dummyanother@gmail.com>',
+    cc: 'else <else@your-email.com>',
+    subject: 'testing emailjs',
+  }, (err, message) => { console.log(err || message); res.json(`Error : ${JSON.stringify(err)} , Msg : ${JSON.stringify(message)}`); });
 });
 
 module.exports = router;
