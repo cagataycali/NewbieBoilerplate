@@ -1,6 +1,6 @@
 # About boilerplate :
 
-Node Boilerplate has 2 goals:
+Node Boilerplate has 6 feature:
  - Base security rules, like as X-XSS-Protection, ReDoS ( Regexes based Denial Of Service ), basic HTTP secure rules, CORS (Cross-origin resource sharing) etc.
  - Easy to use es6 features with nodemon, for perfect development.
  - Twilio and emailjs already integrated.
