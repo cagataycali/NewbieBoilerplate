@@ -3,6 +3,8 @@ import chalk from 'chalk';
 import cors from 'cors';
 import email from 'emailjs';
 import twilio from 'twilio';
+import kue from 'kue-scheduler';
+
 
 const router = new express.Router();
 
@@ -79,5 +81,11 @@ router.get('/sms', cors(), (req, res) => {
     }
   });
 });
+
+router.get('/kue', cors(), (req, res) => {
+  res.json({ msg: 'This is CORS-enabled for all origins!' });
+});
+
+
 
 module.exports = router;
