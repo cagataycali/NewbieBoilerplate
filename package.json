@@ -6,7 +6,9 @@
     "start": "node dist/app.js",
     "build": "rm -rf dist && babel src --out-dir dist",
     "lint": "eslint \"routes/**/*.js\" \"*.js\"",
-    "start-dev": "nodemon --exec babel-node app.js"
+    "start-dev": "nodemon --exec babel-node app.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "async": "^2.0.0-rc.5",
@@ -33,7 +35,8 @@
     "sequelize": "^3.23.2",
     "serve-favicon": "~2.4.5",
     "twilio": "^2.9.1",
-    "yosay": "^1.1.1"
+    "yosay": "^1.1.1",
+    "snyk": "^1.317.0"
   },
   "description": "Simple boilerplate for newbie coders",
   "main": "app.js",
@@ -55,5 +58,6 @@
     "eslint-plugin-import": "^1.8.1",
     "eslint-plugin-jsx-a11y": "^1.2.2",
     "eslint-plugin-react": "^5.1.1"
-  }
+  },
+  "snyk": true
 }
