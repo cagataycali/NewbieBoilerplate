@@ -33,7 +33,7 @@
     "sequelize": "^3.23.2",
     "serve-favicon": "~2.4.5",
     "twilio": "^2.9.1",
-    "yosay": "^1.1.1"
+    "yosay": "^3.0.0"
   },
   "description": "Simple boilerplate for newbie coders",
   "main": "app.js",
