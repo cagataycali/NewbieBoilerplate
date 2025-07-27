@@ -23,7 +23,7 @@
     "helmet": "^3.8.2",
     "hpp": "^0.2.1",
     "jade": "~1.11.0",
-    "jsdom": "^9.2.0",
+    "jsdom": "^16.6.0",
     "lodash": "^4.13.1",
     "moment": "^2.13.0",
     "morgan": "~1.9.0",
@@ -32,7 +32,7 @@
     "request": "^2.72.0",
     "sequelize": "^3.23.2",
     "serve-favicon": "~2.4.5",
-    "twilio": "^2.9.1",
+    "twilio": "^3.41.0",
     "yosay": "^1.1.1"
   },
   "description": "Simple boilerplate for newbie coders",
